@@ -206,24 +206,10 @@ li::before {
 
                 <section>
                     <h2>What is Event Sourcing?</h2>
-                    <p>
-                        
-                    </p>
                     <ul>
-                        <li class="fragment">
-                            <strong>Replay</strong>
-                            When a session includes a failed or successful attempt that has educational value, students
-                            and instructors can watch the session as a class.
-                        </li>
-                        <li class="fragment">
-                            <strong>Retry</strong>
-                            When a student fails a scenario, the instructor can rewind to allow them to retry without starting over the session.
-                        </li>
-                        <li class="fragment">
-                            <strong>Scenario from Session</strong>
-                            When a session contains a moment that can serve as a learning experience, instructors can create a
-                            new scenario from a certain point in the session to use as the basis of future simulations.
-                        </li>
+                        <li class="fragment">Each change to a model's state is recorded in an <strong>event object</strong>.</li>
+                        <li class="fragment">The ordered <strong>event stream</strong> is persisted instead of the model.</li>
+                        <li class="fragment">The model can be <strong>reconstituted</strong> from it's event history.</li>
                     </ul>
                 </section>
 
