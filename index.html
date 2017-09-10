@@ -253,6 +253,27 @@ li::before {
                 </section>
 
                 <section>
+                    <h2>Problems with Event Sourcing</h2>
+                    <ul>
+                        <li class="fragment">
+                            <strong>Large # of Events:</strong>
+                            Recording and storing large numbers of events could be slow or take a lot of storage space.
+                            Solution: Measure first, might not be a problem
+                        </li>
+                        <li class="fragment">
+                            <strong>Frequently Reconsituting Models:</strong>
+                            Replying large numbers of events on larger numbers of models could be slow.
+                            Solution: Snapshots
+                        </li>
+                        <li class="fragment">
+                            <strong>Querying & Reporting:</strong>
+                            Event streams don't lend themselves to querying.
+                            Solution: CQRS/Read Models
+                        </li>
+                    </ul>
+                </section>
+
+                <section>
                     <h2>Code Example</h2>
                 </section>
 
