@@ -228,7 +228,28 @@ li::before {
                 </section>
 
                 <section>
-                    <h2>Benefits</h2>
+                    <h2>Benefits of Event Sourcing</h2>
+                    <ul>
+                        <li class="fragment">
+                            <strong>Auditing:</strong>
+                            Event stream gives the "Why" of state change
+                        </li>
+                        <li class="fragment">
+                            <strong>Versioning:</strong>
+                            Tell whether a model has changed and if its different from your copy
+                        </li>
+                        <li class="fragment">
+                            <strong>Replay/rewind:</strong>
+                            Free redo/undo functionality through replay of only some events (all but the last one).
+                        </li>
+                        <li class="fragment">
+                            <strong>Debugability:</strong>
+                            Developers can load state from a bug report's event stream to reproduce bugs and look at the history to see where things went wrong.</li>
+                        <li class="fragment">
+                            <strong>Real-Time Updates:</strong>
+                            Push small event messages to clients to trigger updates
+                        </li>
+                    </ul>
                 </section>
 
                 <section>
