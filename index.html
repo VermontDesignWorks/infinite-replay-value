@@ -228,6 +228,22 @@ li::before {
                 </section>
 
                 <section>
+                    <h2>Event Sourcing: Step By Step</h2>
+                    <p>Instead of directly modifying properties or using setters, use public mutator methods that:</p>
+                    <ul>
+                        <li class="fragment">
+                            create an event object and push onto a stack (e.g. new AircraftAltitudeChangedEvent(newAltitude))
+                        </li>
+                        <li class="fragment">
+                            call an event-specific method to mutate the model's state (e.g. applyAircraftAltitudeChangedEvent)
+                        </li>
+                        <li class="fragment">
+                            increment a version number on the model so we can tell it has changed (and which version of it we have)
+                        </li>
+                    </ul>
+                </section>
+
+                <section>
                     <h2>Benefits of Event Sourcing</h2>
                     <ul>
                         <li class="fragment">
