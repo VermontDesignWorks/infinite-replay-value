@@ -300,6 +300,36 @@ class Aircraft
 </code></pre>
                 </section>
 
+                <section data-fullscreen>
+                    <h2>Persisting Events</h2>
+                    <p>To persist a model, flush any events from the stack save them to the storage engine (database, <a href="https://geteventstore.com/">eventstore</a>).</p>
+<pre><code data-trim contenteditable class="cs" style="font-size: 80%;">
+class Aircraft
+{
+  public List&lt;ModelChangedEvent&gt; ReleaseEvents() {
+    List&lt;ModelChangedEvent&gt; releasedEvents = events;
+    events = new List&lt;ModelChangedEvent&gt;();
+    return releasedEvents;
+  }
+}
+</code></pre>
+                </section>
+
+                <section data-fullscreen>
+                    <h2>Reconsituting Models</h2>
+                    <p>To load a model from an event stream, pull the events history from the storage engine and re-apply them in order.</p>
+<pre><code data-trim contenteditable class="cs" style="font-size: 80%;">
+class Aircraft
+{
+  public void ReconsistuteFromEvents(List&lt;ModelChangedEvent&gt; evts) {
+    foreach (var evt in evts) {
+        Apply(evt);
+    }
+  }
+}
+</code></pre>
+                </section>
+
                 <section>
                     <h2>Benefits of Event Sourcing</h2>
                     <ul>
