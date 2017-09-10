@@ -54,6 +54,16 @@ li::before {
     text-align: left;
     padding-top: 1em;
 }
+.reveal .slides section[data-fullscreen] {
+    padding: 0;
+}
+.reveal [data-fullscreen] pre {
+    width: 100%;
+    margin: 0;
+}
+.reveal [data-fullscreen] pre code {
+    max-height: 75vh;
+}
         </style>
 	</head>
 	<body>
@@ -243,6 +253,53 @@ li::before {
                     </ul>
                 </section>
 
+                <section data-fullscreen>
+                    <h2>Event Classes</h2>
+<pre><code data-trim contenteditable class="cs" style="font-size: 80%;">
+abstract class ModelChangedEvent
+{
+  public string aggregateId;
+  public int version = 0;
+}
+
+class AltitudeChangedEvent : ModelChangedEvent
+{
+  public int altitude;
+}
+</code></pre>
+                </section>
+
+                <section data-fullscreen>
+<pre><code data-trim contenteditable class="cs" style="font-size: 80%;">
+class Aircraft
+{
+  public string id;
+  public int version;
+  public int altitude;
+  public List&lt;ModelChangedEvent&gt; events = new List&lt;ModelChangedEvent&gt;();
+  public void SetAltitude(int newAltitude) {
+    RecordThat(new AltitudeChangedEvent(id, newAltitude));
+  }
+  protected void RecordThat(ModelChangedEvent evt) {
+    evt.version = version + 1;
+    events.Add(evt);
+    Apply(evt);
+  }
+  protected void Apply(ModelChangedEvent evt) {
+    switch (evt.GetType().Name) {
+      case "AltitudeChangedEvent":
+        ApplyAltitudeChangedEvent((AltitudeChangedEvent) evt);
+        break;
+    }
+    version = evt.version;
+  }
+  protected void ApplyAltitudeChangedEvent(AltitudeChangedEvent evt) {
+    altitude = evt.altitude;
+  }
+}
+</code></pre>
+                </section>
+
                 <section>
                     <h2>Benefits of Event Sourcing</h2>
                     <ul>
@@ -318,6 +375,7 @@ li::before {
 				dependencies: [
 					{ src: 'plugin/markdown/marked.js' },
 					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/fullscreen/fullscreen.js' },
 					{ src: 'plugin/notes/notes.js', async: true },
 					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
 				]
