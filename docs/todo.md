@@ -20,5 +20,5 @@
 - [ ] I'm not sure which of these is more performant (I have a hunch your way might be better, since it doesn't involve copying the list) ... might be something I'll do some benchmarking on since this method will be called frequently.
 - [ ] Also on the topic of performance, (and also not really relevant to the presentation,) I wonder if there might be a better way for the Apply() method to determine which event-class-specific Apply*() method to delegate to, instead of using a switch statement with string comparison. I was thinking maybe each Aggregate would maintain a static mapping of event types to a Func<T> that points to the associated Apply*() method. Let me know if you want me to write some example code for how that might look.
 - [ ] When reconstituting models, should the ReconstituteFromEvents() method sort the events by version, or at least validate that each event in the list has a higher version than the one before? I'm not sure where that responsibility should lie.
-- [ ] On the "Problems with event sourcing" slide, "replying" should be "replaying".
+- [X] On the "Problems with event sourcing" slide, "replying" should be "replaying".
 - [ ] I think we talked about this a little already, but were you planning to talk about other common uses of event sourcing, such as bank ledgers, ecommerce, etc?
