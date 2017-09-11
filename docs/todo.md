@@ -7,7 +7,7 @@
 - [ ] How would you do this slide, have a better answer myself
 - [ ] Apply? Use the word apply.  https://vermontdesignworks.github.io/infinite-replay-value/#/11
 - [ ] Chnage aggregateId to modelId
-- [ ] On the "About the SimSuite software" slide, Traffic is spelled wrong. I'd also recommend expanding the SimTarget description to be "Traffic Generation".
+- [X] On the "About the SimSuite software" slide, Traffic is spelled wrong. I'd also recommend expanding the SimTarget description to be "Traffic Generation".
 - [X] Approach controllers don't control the plane during landings (tower controllers do that). Approach controllers handle the final descent and approach to the airport. Once the plane is lined up with the runway, it is handed off to tower.
 - [X] The SimVox Communication slide has a typo, missing the word "be" in between "can" and "used".
 - [X] On the "New Requirements" slide, I would modify the 2nd bullet point a bit to say "When a student fails a scenario, the instructor can rewind the recorded scenario to a chosen point in time to allow the student to retry without the need to start from the beginning." (I think this language highlights the benefits of a timestamped event stream a bit better.)
