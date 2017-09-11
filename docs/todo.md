@@ -1,5 +1,6 @@
 # TODO
 
+- [ ] Dont use public fields, se private properties with get private set and explain it for non c# devs
 - [X] Missing ATC overview (remove from summary?)
 - [X] Traffix typo
 - [X] int newAltitude typehint
